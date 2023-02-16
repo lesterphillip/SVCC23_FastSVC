@@ -1,0 +1,12 @@
+IDF:
+  maxf0: 1000
+  minf0: 100
+IDM:
+  maxf0: 1000
+  minf0: 100
+CDF:
+  maxf0: 340
+  minf0: 70
+CDM:
+  maxf0: 340
+  minf0: 70

@@ -1,0 +1,1 @@
+This PPG extractor was directly lifted from [@liusongxiang](https://github.com/liusongxiang)'s [PPG-VC model](https://github.com/liusongxiang/ppg-vc), which also used code from [ESPNet](https://github.com/espnet/espnet) as reference.

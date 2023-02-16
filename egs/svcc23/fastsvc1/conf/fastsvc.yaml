@@ -1,0 +1,134 @@
+# This is the hyperparameter configuration file for any-to-any FastSVC 
+# Takes around 4 days to train on an RTX 3090
+
+###########################################################
+#                FEATURE EXTRACTION SETTINGS              #
+###########################################################
+sampling_rate: 24000     # Sampling rate.
+fft_size: 2048           # FFT size.
+hop_size: 160            # Hop size of the PPG model.
+lft_hop_size: 64         # Hop size for the loudness feature extraction.
+shiftms: 6.7             # Shift size for F0 extraction
+
+trim_silence: false      # Whether to trim the start and end of silence.
+trim_threshold_in_db: 15 # Need to tune carefully if the recording is not good.
+trim_frame_size: 2048    # Frame size in trimming.
+trim_hop_size: 512       # Hop size in trimming.
+
+###########################################################
+#        GENERATOR NETWORK ARCHITECTURE SETTINGS          #
+###########################################################
+generator_type: "FastSVCGenerator"
+generator_params:
+    in_channels: 144      # Number of input channels, embedding size from PPG
+    out_channels: 1       # Number of output channels.
+    mid_channels: [192, 96, 48, 24]     # Number of channels for each block.
+    upsampling_scales: [2, 4, 4, 5]     # Upsampling scales. Prodcut of these must be the same as hop size.
+    spk_emb_size: 512          # Size of the extracted speaker embeddings
+    use_spk_emb: True          # Condition network using speaker embeddings
+
+###########################################################
+#      DISCRIMINATOR NETWORK ARCHITECTURE SETTINGS        #
+###########################################################
+discriminator_type: HiFiGANMultiScaleMultiPeriodDiscriminator
+discriminator_params:
+    scales: 3                              # Number of multi-scale discriminator.
+    scale_downsample_pooling: "AvgPool1d"  # Pooling operation for scale discriminator.
+    scale_downsample_pooling_params:
+        kernel_size: 4                     # Pooling kernel size.
+        stride: 2                          # Pooling stride.
+        padding: 2                         # Padding size.
+    scale_discriminator_params:
+        in_channels: 1                     # Number of input channels.
+        out_channels: 1                    # Number of output channels.
+        kernel_sizes: [15, 41, 5, 3]       # List of kernel sizes.
+        channels: 128                      # Initial number of channels.
+        max_downsample_channels: 1024      # Maximum number of channels in downsampling conv layers.
+        max_groups: 16                     # Maximum number of groups in downsampling conv layers.
+        bias: true
+        downsample_scales: [4, 4, 4, 4, 1] # Downsampling scales.
+        nonlinear_activation: "LeakyReLU"  # Nonlinear activation.
+        nonlinear_activation_params:
+            negative_slope: 0.1
+    follow_official_norm: true             # Whether to follow the official norm setting.
+    periods: [2, 3, 5, 7, 11]              # List of period for multi-period discriminator.
+    period_discriminator_params:
+        in_channels: 1                     # Number of input channels.
+        out_channels: 1                    # Number of output channels.
+        kernel_sizes: [5, 3]               # List of kernel sizes.
+        channels: 32                       # Initial number of channels.
+        downsample_scales: [3, 3, 3, 3, 1] # Downsampling scales.
+        max_downsample_channels: 1024      # Maximum number of channels in downsampling conv layers.
+        bias: true                         # Whether to use bias parameter in conv layer."
+        nonlinear_activation: "LeakyReLU"  # Nonlinear activation.
+        nonlinear_activation_params:       # Nonlinear activation paramters.
+            negative_slope: 0.1
+        use_weight_norm: true              # Whether to apply weight normalization.
+        use_spectral_norm: false           # Whether to apply spectral normalization.
+
+###########################################################
+#                       LOSS SETTINGS                     #
+###########################################################
+stft_loss_params:
+    fft_sizes: [2048, 1024, 512, 256, 128, 64]  # List of FFT size for STFT-based loss.
+    hop_sizes: [512, 256, 128, 64, 32, 16]   # List of hop size for STFT-based loss
+    win_lengths: [2048, 1024, 512, 256, 128, 64]  # List of FFT size for STFT-based loss.
+    window: "hann_window"         # Window function for STFT-based loss
+
+lambda_adv: 2.5  # Adversarila loss coefficient.
+
+###########################################################
+#                  DATA LOADER SETTINGS                   #
+###########################################################
+batch_size: 32             # Batch size.
+batch_length: 24000        # Length of each audio in batch. Make sure dividable by hop_size.
+pin_memory: true           # Whether to pin memory in Pytorch DataLoader.
+num_workers: 8             # Number of workers in Pytorch DataLoader.
+remove_short_samples: true # Whether to remove samples the length of which are less than batch_max_steps.
+signal_generator:           # Configuration for the sine excitation signal generator
+    sine_amp: 0.1           # Amplitude of sine wave
+    noise_amp: 0.003        # Amplitude of noise wave
+    sine_f0_type: "f0"      # F0 type (choices: f0 or contf0)
+    signal_types: ["sine"]  # Output signals
+allow_cache: true          # Whether to allow cache in dataset. If true, it requires cpu memory.
+aux_context_window: 0 # Context window size for auxiliary feature.
+                      # If set to 2, previous 2 and future 2 frames will be considered.
+
+###########################################################
+#             OPTIMIZER & SCHEDULER SETTINGS              #
+###########################################################
+generator_optimizer_params:
+    lr: 0.001              # Generator's learning rate.
+    eps: 1.0e-6            # Generator's epsilon.
+    weight_decay: 0.0      # Generator's weight decay coefficient.
+generator_scheduler_params:
+    step_size: 100000      # Generator's scheduler step size.
+    gamma: 0.5             # Generator's scheduler gamma.
+                           # At each step size, lr will be multiplied by this parameter.
+generator_grad_norm: 10    # Generator's gradient norm.
+discriminator_optimizer_params:
+    lr: 0.001              # Discriminator's learning rate.
+    eps: 1.0e-6            # Discriminator's epsilon.
+    weight_decay: 0.0      # Discriminator's weight decay coefficient.
+discriminator_scheduler_params:
+    step_size: 100000      # Discriminator's scheduler step size.
+    gamma: 0.5             # Discriminator's scheduler gamma.
+                           # At each step size, lr will be multiplied by this parameter.
+discriminator_grad_norm: 1 # Discriminator's gradient norm.
+
+###########################################################
+#                    INTERVAL SETTINGS                    #
+###########################################################
+discriminator_train_start_steps: 100000  # Number of steps to start to train discriminator.
+train_max_steps: 600000                  # Number of training steps.
+save_interval_steps: 50000               # Interval steps to save checkpoint.
+eval_interval_steps: 50000               # Interval steps to evaluate the network.
+log_interval_steps: 5000                 # Interval steps to record the training log.
+
+###########################################################
+#                     OTHER SETTINGS                      #
+###########################################################
+num_save_intermediate_results: 6                         # Number of results to be saved as intermediate results.
+convert_to_speakers: ["CDM", "CDF", "IDM", "IDF"]        # Target speakers to convert to during inference
+ppg_conf_path: "/path/to/dir/SVCC23_FastSVC/harana/ppg/en_conformer_ctc_att/config.yaml"  # Path to the config.yaml file for PPG extraction
+ppg_model_path: "/path/to/dir/SVCC23_FastSVC/harana/ppg/en_conformer_ctc_att/24epoch.pth" # Path to the pretrained model for PPG extraction

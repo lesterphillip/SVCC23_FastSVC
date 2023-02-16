@@ -1,0 +1,37 @@
+# general
+*~
+*.pyc
+\#*\#
+.\#*
+*DS_Store
+out.txt
+*.egg-info/
+doc/_build
+slurm-*.out
+tmp*
+.eggs/
+.hypothesis/
+.idea
+.backup/
+.pytest_cache/
+__pycache__/
+.coverage*
+coverage.xml*
+.vscode*
+.nfs*
+*.pt
+*.pth
+.ipynb_checkpoints
+.d000*
+*.out
+*.err
+_*/
+
+# recipe related
+egs/*/*/dump*
+egs/*/*/exp*
+egs/*/*/pretrained_models
+
+# tools related
+tools/venv/
+tools/apex/
