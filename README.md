@@ -10,7 +10,7 @@ This repository provides the <strong>UNOFFICIAL</strong> reimplementation of Fas
 
 ---
 ## News
-- **2023/02/17** We are releasing the first version of the repository and some generated samples at [this site]().
+- **2023/02/17** We are releasing the first version of the repository and some generated samples at [this site](http://www.vc-challenge.org/samples/index.html).
 
 ---
 ## Description of the FastSVC System
