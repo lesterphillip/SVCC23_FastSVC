@@ -19,8 +19,6 @@ __pycache__/
 coverage.xml*
 .vscode*
 .nfs*
-*.pt
-*.pth
 .ipynb_checkpoints
 .d000*
 *.out
