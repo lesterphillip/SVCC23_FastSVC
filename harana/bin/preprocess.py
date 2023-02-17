@@ -231,13 +231,16 @@ def main():
         lft = loudness_extract(audio, sampling_rate, lft_hop_size)
         lft = np.expand_dims(lft, axis=-1)
 
-        # ppg extraction and linear interpolation to 24kHz
+        # ppg extraction and linear interpolation to 24kHz if needed
         raw_ppg = ppg_extract(
             audio16k, args.device, config["ppg_conf_path"], config["ppg_model_path"]
         )
-        raw_ppg = raw_ppg.permute(0, 2, 1)
-        ppg = F.interpolate(raw_ppg, scale_factor=1.5)
-        ppg = ppg.permute(0, 2, 1).squeeze(0).cpu().numpy()
+        if config["sampling_rate"] == 16000:
+            ppg = raw_ppg
+        elif config["sampling_rate"] == 24000:
+            raw_ppg = raw_ppg.permute(0, 2, 1)
+            ppg = F.interpolate(raw_ppg, scale_factor=1.5)
+            ppg = ppg.permute(0, 2, 1).squeeze(0).cpu().numpy()
 
         # sanity check to ensure feature lengths are being correctly cut
         logging.info("BEFORE LENGTH ADJUSTMENT")
