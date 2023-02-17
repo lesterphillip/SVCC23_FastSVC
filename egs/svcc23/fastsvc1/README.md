@@ -1,6 +1,6 @@
 # FastSVC with the SVCC23 dataset
 
-This recipe runs a reimplementation of FastSVC using the [SVCC23 dataset](TODO).
+This recipe runs a reimplementation of FastSVC using the SVCC23 Dataset.
 
 Before running this, please make sure that you have already setup your environment. You can refer to the README file in the root folder.
 
@@ -20,7 +20,7 @@ cd SVCC23_FastSVC/egs/svcc23/fastsvc1
 
 ### 2. Specify the following parameters for dataset preprocessing.
 
-2a. Replace the file locations in the wav.scp files found in the `data/` directory, and the PPG model file path in `conf/fastsvc.yaml`
+2a. Replace the file locations in the wav.scp files found in the `data/` directory, and the PPG model file path in `conf/fastsvc.yaml`. There are two configurations based on the sampling rate.
 
 We use a kaldi-style data directory. To make things easier, you can just simply replace the `/path/to/dir` with the directory where you placed the dataset and the repository. 
 
@@ -90,12 +90,16 @@ If you are using a pretrained model, you can also specify the checkpoint to load
 
 ## Pretrained Models
 
-<TODO: add>
-
-### FastSVC reimplementation
-- 24kHz / Trained on SVCC23 + VCTK + M4Singer + OpenCPOP + OpenSinger / 600k steps
+24kHz / Trained on SVCC23 + VCTK + M4Singer + OpenCPOP + OpenSinger / 600k steps
 - Takes around 4 days to train on a single RTX 3090.
+- [Link](https://drive.google.com/file/d/1Ehn0mWqnC5kg6RmZJktY9lZFOh9Ndczu/view?usp=share_link)
+
+
+16kHz / Trained on SVCC23 + VCTK / 600k steps
+- Takes around 2 days to train on a single RTX 3090.
+- [Link](https://drive.google.com/file/d/1DlwtPRSUH6a-ScIpnUqUXZHxXzGQANvD/view?usp=share_link)
+
 
 ## Samples
 
-<TODO: add>
+- [Link](lesterphillip.github.io/svcc23samples)

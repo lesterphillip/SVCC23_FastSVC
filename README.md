@@ -1,11 +1,11 @@
-# Singing Voice Conversion Challenge 2023 Baseline: FastSVC
+# Singing Voice Conversion Challenge 2023 Starter Kit: FastSVC
 
 Official homepage: [http://www.vc-challenge.org/](http://www.vc-challenge.org/)
 
 ## Introduction
 
 <p align="justify"> 
-This repository provides the <strong>UNOFFICIAL</strong> reimplementation of FastSVC for the Singing Voice Conversion Challenge 2023 (SVCC23) baseline. SVCC23 includes two tasks: in-domain and cross-domaing singing voice conversion (SVC). In-domain SVC is trained while having access to the singing data of the target speaker, while cross-domain SVC is trained while only having access to the speech data of the target speaker.
+This repository provides the <strong>UNOFFICIAL</strong> reimplementation of FastSVC for the Singing Voice Conversion Challenge 2023 (SVCC23) starter kit. SVCC23 includes two tasks: in-domain and cross-domaing singing voice conversion (SVC). In-domain SVC is trained while having access to the singing data of the target speaker, while cross-domain SVC is trained while only having access to the speech data of the target speaker.
 </p>
 
 ---
@@ -33,8 +33,7 @@ Specific changes:
 ---
 ## Pretrained models and demo 
 
-The pretrained FastSVC models can be accessed [here]().
-The generated samples can be accessed [here]().
+Please refer to the README files in `egs/svcc23/fastsvc1/README.md`
 
 ---
 ## Corpus
