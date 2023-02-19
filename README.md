@@ -30,8 +30,11 @@ Specific changes:
 3. We replace the discriminator with the one used in HiFiGAN as recommended by the authors.
 4. The PPG extractor we [used](https://github.com/liusongxiang/ppg-vc/tree/main/conformer_ppg_model) has a hop size of 160, so the upsampling scales are changed to [5, 4, 4, 2].
 
+### Reimplementation Samples
+You can see some samples of the original paper's reimplementation [here.](https://drive.google.com/drive/folders/1VDlyQDsvZZ2UujfY3axnUoKeCBM-h-Kx?usp=share_link)
+
 ---
-## Pretrained models and demo 
+## Pretrained models and demo for SVCC23 dataset
 
 Please refer to the README files in `egs/svcc23/fastsvc1/README.md`
 
