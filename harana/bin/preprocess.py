@@ -75,14 +75,14 @@ def loudness_extract(audio, sampling_rate, hop_length):
     return loudness.numpy()
 
 
+
 def ppg_extract(
     audio,
     device,
-    train_config,
-    model_file,
+    model,
 ):
-    model = load_ppg_model(train_config, model_file, device)
-    wav_tensor = torch.from_numpy(audio).float().to(device).unsqueeze(0)
+    audio = torch.from_numpy(audio)
+    wav_tensor = audio.float().to(device).unsqueeze(0)
     wav_length = torch.LongTensor([audio.shape[0]]).to(device)
 
     with torch.no_grad():
@@ -168,6 +168,9 @@ def main():
         return_sampling_rate=True,
     )
 
+    # initialize ppg extractor
+    ppg_extractor = load_ppg_model(config["ppg_conf_path"], config["ppg_model_path"], args.device)
+
     # check directory existence
     if not os.path.exists(args.dumpdir):
         os.makedirs(args.dumpdir, exist_ok=True)
@@ -203,8 +206,13 @@ def main():
 
         # get min and max f0 information of each speaker
         spk_id = utt_id.split("_")[0]
-        minf0 = f0_file[spk_id]["minf0"]
-        maxf0 = f0_file[spk_id]["maxf0"]
+        try:
+            minf0 = f0_file[spk_id]["minf0"]
+            maxf0 = f0_file[spk_id]["maxf0"]
+        except:
+            logging.warn(f"cannot find f0 information of {spk_id}, using default values")
+            minf0 = 50
+            maxf0 = 1000
 
         # read speaker embedding files
         try:
@@ -232,11 +240,9 @@ def main():
         lft = np.expand_dims(lft, axis=-1)
 
         # ppg extraction and linear interpolation to 24kHz if needed
-        raw_ppg = ppg_extract(
-            audio16k, args.device, config["ppg_conf_path"], config["ppg_model_path"]
-        )
+        raw_ppg = ppg_extract(audio16k, args.device, ppg_extractor)
         if config["sampling_rate"] == 16000:
-            ppg = raw_ppg
+            ppg = raw_ppg.squeeze(0).cpu().numpy()
         elif config["sampling_rate"] == 24000:
             raw_ppg = raw_ppg.permute(0, 2, 1)
             ppg = F.interpolate(raw_ppg, scale_factor=1.5)
