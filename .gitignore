@@ -26,6 +26,7 @@ coverage.xml*
 _*/
 
 # recipe related
+egs/*/*/data*
 egs/*/*/dump*
 egs/*/*/exp*
 egs/*/*/pretrained_models

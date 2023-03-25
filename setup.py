@@ -24,10 +24,10 @@ if LooseVersion(pip.__version__) < LooseVersion("19"):
 
 requirements = {
     "install": [
-        "torch>=1.4.0",
+        "torch==1.12.0",
         "numpy==1.22.4",
         "setuptools>=38.5.1",
-        "librosa>=0.8.0",
+        "librosa==0.8.1",
         "soundfile>=0.10.2",
         "tensorboardX>=1.8",
         "matplotlib>=3.1.0",
@@ -59,7 +59,7 @@ requirements = {
 entry_points = {
     "console_scripts": [
         "harana-extract-speakers=harana.bin.extract_spk_embs:main",
-        "harana-preprocess=harana.bin.preprocess_fastsvc:main",
+        "harana-preprocess=harana.bin.preprocess:main",
         "harana-compute-statistics=harana.bin.compute_statistics:main",
         "harana-compute-f0stats=harana.bin.compute_f0stats:main",
         "harana-normalize=harana.bin.normalize:main",
