@@ -81,7 +81,7 @@ lambda_adv: 2.5  # Adversarila loss coefficient.
 #                  DATA LOADER SETTINGS                   #
 ###########################################################
 batch_size: 32             # Batch size.
-batch_length: 24000        # Length of each audio in batch. Make sure dividable by hop_size.
+batch_length: 12000        # Length of each audio in batch. Make sure dividable by hop_size.
 pin_memory: true           # Whether to pin memory in Pytorch DataLoader.
 num_workers: 8             # Number of workers in Pytorch DataLoader.
 remove_short_samples: true # Whether to remove samples the length of which are less than batch_max_steps.
@@ -122,13 +122,13 @@ discriminator_grad_norm: 1 # Discriminator's gradient norm.
 discriminator_train_start_steps: 100000  # Number of steps to start to train discriminator.
 train_max_steps: 600000                  # Number of training steps.
 save_interval_steps: 50000               # Interval steps to save checkpoint.
-eval_interval_steps: 50000               # Interval steps to evaluate the network.
+eval_interval_steps: 5000               # Interval steps to evaluate the network.
 log_interval_steps: 5000                 # Interval steps to record the training log.
 
 ###########################################################
 #                     OTHER SETTINGS                      #
 ###########################################################
 num_save_intermediate_results: 6                         # Number of results to be saved as intermediate results.
-convert_to_speakers: ["CDM", "CDF", "IDM", "IDF"]        # Target speakers to convert to during inference
+convert_to_speakers: ["CDM1", "CDF1", "IDM1", "IDF1"]        # Target speakers to convert to during inference
 ppg_conf_path: "/path/to/dir/SVCC23_FastSVC/harana/ppg/en_conformer_ctc_att/config.yaml"  # Path to the config.yaml file for PPG extraction
 ppg_model_path: "/path/to/dir/SVCC23_FastSVC/harana/ppg/en_conformer_ctc_att/24epoch.pth" # Path to the pretrained model for PPG extraction
