@@ -11,7 +11,7 @@ stop_stage=100 # stage to stop
 n_gpus=1       # number of gpus in training
 n_jobs=4       # number of parallel jobs in feature extraction
 
-conf=conf/fastsvc.yaml
+conf=conf/fastsvc24kHz.yaml
 f0_path=conf/f0.yml
 device_feat_extract="cuda"
 
@@ -33,7 +33,7 @@ checkpoint="" # checkpoint path to be used for decoding
 
 train_set="train_full" # name of training data directory
 dev_set="dev_full"           # name of development data direcotry
-eval_set="evaluation"     # name of evaluation data direcotry
+eval_set="evaluation_samples"     # name of evaluation data direcotry
 
 set -euo pipefail
 
@@ -70,7 +70,7 @@ if [ "${stage}" -le 1 ] && [ "${stop_stage}" -ge 1 ]; then
         echo "Feature extraction start. See the progress via ${dumpdir}/${name}/raw/preprocessing.*.log."
         utils/make_subset_data.sh "data/${name}" "${n_jobs}" "${dumpdir}/${name}/raw"
         ${train_cmd} JOB=1:${n_jobs} "${dumpdir}/${name}/raw/preprocessing.JOB.log" \
-            harana-preprocess-fastsvc \
+            harana-preprocess \
                 --config "${conf}" \
                 --scp "${dumpdir}/${name}/raw/wav.JOB.scp" \
                 --dumpdir "${dumpdir}/${name}/raw/dump.JOB" \
