@@ -1,0 +1,145 @@
+idx,start,stop,name,index1,id,
+1,5.75,11.86,hey jude dont make it bad,0,F01_S05_1,6.11
+1,5.86,11.83,hey jude dont make it bad,0,F02_S05_1,5.97
+1,12.85,19.06,hey jude dont make it bad,0,F04_S05_1,6.21
+1,5.64,11.83,hey jude dont make it bad,0,M02_S05_1,6.19
+1,5.75,11.67,hey jude dont make it bad,0,M03_S05_1,5.92
+1,5.88,11.52,hey jude dont make it bad,0,M04_S05_1,5.64
+2,11.86,18.79,take a sad song and make it better,1,F01_S05_2,6.93
+2,11.83,18.69,take a sad song and make it better,1,F02_S05_2,6.86
+2,19.06,26.08,take a sad song and make it better,1,F04_S05_2,7.02
+2,11.83,18.63,take a sad song and make it better,1,M02_S05_2,6.8
+2,11.67,18.66,take a sad song and make it better,1,M03_S05_2,6.99
+2,11.52,18.36,take a sad song and make it better,1,M04_S05_2,6.84
+3,18.79,24.26,remember to let her into your heart,2,F01_S05_3,5.47
+3,18.69,24.08,remember to let her into your heart,2,F02_S05_3,5.39
+3,26.08,31.23,remember to let her into your heart,2,F04_S05_3,5.15
+3,18.63,24.14,remember to let her into your heart,2,M02_S05_3,5.51
+3,18.66,24.01,remember to let her into your heart,2,M03_S05_3,5.35
+3,18.36,23.94,remember to let her into your heart,2,M04_S05_3,5.58
+4,65.73,74.46,dont carry the world upon your shoulders,9,F01_S05_10,8.73
+4,65.74,74.31,dont carry the world upon your shoulders,9,F02_S05_10,8.57
+4,72.75,81.9,dont carry the world upon your shoulders,9,F04_S05_10,9.15
+4,65.56,74.24,dont carry the world upon your shoulders,9,M02_S05_10,8.68
+4,65.62,74.19,dont carry the world upon your shoulders,9,M03_S05_10,8.57
+4,65.58,73.98,dont carry the world upon your shoulders,9,M04_S05_10,8.4
+5,74.46,82,for well you know that its a fool who plays it cool,10,F01_S05_11,7.54
+5,74.31,81.98,for well you know that its a fool who plays it cool,10,F02_S05_11,7.67
+5,81.9,88.87,for well you know that its a fool who plays it cool,10,F04_S05_11,6.97
+5,74.24,81.83,for well you know that its a fool who plays it cool,10,M02_S05_11,7.59
+5,74.19,81.73,for well you know that its a fool who plays it cool,10,M03_S05_11,7.54
+5,73.98,81.85,for well you know that its a fool who plays it cool,10,M04_S05_11,7.87
+6,201.67,214.6,na na na na na na na na na na na hey jude,25,F04_S05_26,12.93
+6,194.16,207.42,na na na na na na na na na na na hey jude,27,F01_S05_28,13.26
+6,194.78,207.53,na na na na na na na na na na na hey jude,27,F02_S05_28,12.75
+6,194.34,206.74,na na na na na na na na na na na hey jude,27,M02_S05_28,12.4
+6,194.55,207.24,na na na na na na na na na na na hey jude,27,M03_S05_28,12.69
+6,194.54,207.52,na na na na na na na na na na na hey jude,27,M04_S05_28,12.98
+7,45.08,51.39,and its me you need to show how deep is your love,6,F01_S06_7,6.31
+7,45.17,50.72,and its me you need to show how deep is your love,6,F04_S06_7,5.55
+7,45.12,51.37,and its me you need to show how deep is your love,6,M02_S06_7,6.25
+7,45.18,51.73,and its me you need to show how deep is your love,6,M03_S06_7,6.55
+7,45.18,50.78,and its me you need to show how deep is your love,7,F02_S06_8,5.6
+7,45.14,51.3,and its me you need to show how deep is your love,7,M04_S06_8,6.16
+8,58.23,62.78,cause were living in a world of fools breaking us down,9,M03_S06_10,4.55
+8,58.31,62.84,cause were living in a world of fools breaking us down,10,F01_S06_11,4.53
+8,58.34,62.86,cause were living in a world of fools breaking us down,10,F04_S06_11,4.52
+8,58.32,62.89,cause were living in a world of fools breaking us down,10,M02_S06_11,4.57
+8,58.24,62.82,cause were living in a world of fools breaking us down,11,M04_S06_12,4.58
+8,58.24,62.75,cause were living in a world of fools breaking us down,11,F02_S06_12,4.51
+9,65.4,69.89,when they all should let us be,11,M03_S06_12,4.49
+9,65.39,69.88,when they all should let us be,12,F01_S06_13,4.49
+9,65.53,70.1,when they all should let us be,12,F04_S06_13,4.57
+9,65.3,69.9,when they all should let us be,13,F02_S06_14,4.6
+9,65.36,69.81,when they all should let us be,13,M04_S06_14,4.45
+9,64.5,70,when they all should let us be,,M02_S06_XX,5.5
+10,70.35,73.88,we belong to you and me,12,M02_S06_13,3.53
+10,69.89,73.78,we belong to you and me,12,M03_S06_13,3.89
+10,69.88,73.9,we belong to you and me,13,F01_S06_14,4.02
+10,70.1,74.17,we belong to you and me,13,F04_S06_14,4.07
+10,69.9,73.85,we belong to you and me,14,F02_S06_15,3.95
+10,69.81,73.78,we belong to you and me,14,M04_S06_15,3.97
+11,90.49,95.47,and you may not think i care for you,19,F02_S06_20,4.98
+11,90.34,95.4,and you may not think i care for you,19,M04_S06_20,5.06
+11,90.33,95.48,and you may not think i care for you,17,M02_S06_18,5.15
+11,90.33,95.48,and you may not think i care for you,17,M03_S06_18,5.15
+11,90.53,95.55,and you may not think i care for you,18,F01_S06_19,5.02
+11,90.66,95.41,and you may not think that i care for you,18,F04_S06_19,4.75
+12,95.48,99.92,when you know down inside that i really do,18,M02_S06_19,4.44
+12,95.48,100.21,when you know down inside that i really do,18,M03_S06_19,4.73
+12,95.55,99.88,when you know down inside that i really do,19,F01_S06_20,4.33
+12,95.41,100.04,when you know down inside that i really do,19,F04_S06_20,4.63
+12,95.47,99.91,when you know down inside that i really do,20,F02_S06_21,4.44
+12,95.4,99.78,when you know down inside that i really do,20,M04_S06_21,4.38
+13,8.65,15.62,when i find myself in times of trouble mother mary comes to me,0,F02_S09_1,6.97
+13,8.59,15.69,when i find myself in times of trouble mother mary comes to me,0,F04_S09_1,7.1
+13,8.65,15.88,when i find myself in times of trouble mother mary comes to me,0,M02_S09_1,7.23
+13,8.56,15.63,when i find myself in times of trouble mother mary comes to me,0,M04_S09_1,7.07
+13,8.32,15.79,when i find myself in times of trouble mother mary comes to me,0,F01_S09_1,7.47
+13,8.08,15.8,when i find myself in times of trouble mother mary comes to me,0,M03_S09_1,7.72
+14,15.79,22.2,speaking words of wisdom let it be,1,F01_S09_2,6.41
+14,15.62,22.49,speaking words of wisdom let it be,1,F02_S09_2,6.87
+14,15.69,22.54,speaking words of wisdom let it be,1,F04_S09_2,6.85
+14,15.88,22.38,speaking words of wisdom let it be,1,M02_S09_2,6.5
+14,15.63,21.79,speaking words of wisdom let it be,1,M04_S09_2,6.16
+14,15.8,21.95,speaking words of wisdom let it be,2,M03_S09_3,6.15
+15,22.2,29.9,and in my hour of darkness she is standing right in front of me,2,F01_S09_3,7.7
+15,22.49,29.88,and in my hour of darkness she is standing right in front of me,2,F02_S09_3,7.39
+15,22.38,29.96,and in my hour of darkness she is standing right in front of me,2,M02_S09_3,7.58
+15,21.79,29.81,and in my hour of darkness she is standing right in front of me,2,M04_S09_3,8.02
+15,22.54,29.82,and in my hour ofmissing darkness she is standing right in front of me,2,F04_S09_3,7.28
+15,21.95,29.93,and in my hour of darkness she is standing right in front of me,3,M03_S09_4,7.98
+16,35.99,43.81,let it be let it be let it be let it be,4,F01_S09_5,7.82
+16,36.11,43.99,let it be let it be let it be let it be,4,F02_S09_5,7.88
+16,36,43.77,let it be let it be let it be let it be,4,F04_S09_5,7.77
+16,36.16,43.86,let it be let it be let it be let it be,4,M02_S09_5,7.7
+16,35.53,43.77,let it be let it be let it be let it be,4,M04_S09_5,8.24
+16,35.65,43.92,let it be let it be let it be let it be,6,M03_S09_7,8.27
+17,50.73,58.17,and when the broken hearted people living in the world agree,6,F01_S09_7,7.44
+17,51.09,58.1,and when the broken hearted people living in the world agree,6,F02_S09_7,7.01
+17,50.39,58.18,and when the broken hearted people living in the world agree,6,M02_S09_7,7.79
+17,50.26,58.06,and when the broken hearted people living in the world agree,6,M04_S09_7,7.8
+17,50.77,58.13,when the broken hearted people living in the world agree,6,F04_S09_7,7.36
+17,50.15,58.18,and when the broken hearted people living in the world agree,8,M03_S09_9,8.03
+18,58.17,64.78,there will be an answer let it be,7,F01_S09_8,6.61
+18,58.1,64.82,there will be an answer let it be,7,F02_S09_8,6.72
+18,58.13,64.68,there will be an answer let it be,7,F04_S09_8,6.55
+18,58.18,64.81,there will be an answer let it be,7,M02_S09_8,6.63
+18,58.06,64.14,there will be an answer let it be,7,M04_S09_8,6.08
+18,58.18,64.29,there will be an answer let it be,9,M03_S09_10,6.11
+19,10.28,19.8,watching every motion in my foolish lovers game,0,F01_S15_1,9.52
+19,11.58,19.63,watching every motion in my foolish lovers game,0,F02_S15_1,8.05
+19,11.57,19.73,watching every motion in my foolish lovers game,0,F04_S15_1,8.16
+19,11.56,19.78,watching every motion in my foolish lovers game,0,M02_S15_1,8.22
+19,11.51,19.76,watching every motion in my foolish lovers game,0,M03_S15_1,8.25
+19,11.56,19.55,watching every motion in my foolish lovers game,0,M04_S15_1,7.99
+20,29.45,39.99,turning and returning to some secret place inside,2,F01_S15_3,10.54
+20,29.86,39.81,turning and returning to some secret place inside,2,F04_S15_3,9.95
+20,29.62,39.98,turning and returning to some secret place inside,2,M02_S15_3,10.36
+20,29.65,39.88,turning and returning to some secret place inside,2,M03_S15_3,10.23
+20,29.67,39.75,turning and returning to some secret place inside,2,M04_S15_3,10.08
+20,29.69,39.91,turning and returning to some secret place inside,2,F02_S15_3,10.22
+21,39.99,49.01,watching in slow motion as you turn around and say,3,F01_S15_4,9.02
+21,39.91,49,watching in slow motion as you turn around and say,3,F02_S15_4,9.09
+21,39.81,49.21,watching in slow motion as you turn around and say,3,F04_S15_4,9.4
+21,39.98,49.1,watching in slow motion as you turn around and say,3,M02_S15_4,9.12
+21,39.88,49.33,watching in slow motion as you turn around and say,3,M03_S15_4,9.45
+21,39.75,49.03,watching in slow motion as you turn around and say,3,M04_S15_4,9.28
+22,49.01,57.26,take my breath away,4,F01_S15_5,8.25
+22,49,57.33,take my breath away,4,F02_S15_5,8.33
+22,49.21,57.56,take my breath away,4,F04_S15_5,8.35
+22,49.1,57.24,take my breath away,4,M02_S15_5,8.14
+22,49.33,57.45,take my breath away,4,M03_S15_5,8.12
+22,49.03,56.91,take my breath away,4,M04_S15_5,7.88
+23,117.93,130.69,through the hourglass i saw you in time you slipped away,10,M02_S15_11,12.76
+23,117.99,130.87,through the hourglass i saw you in time you slipped away,9,F01_S15_10,12.88
+23,121.51,130.64,through the hourglass i saw you in time you slipped away,11,F02_S15_12,9.13
+23,117.98,130.99,through the hourglass i saw you in time you slipped away,11,F04_S15_12,13.01
+23,117.97,130.66,through the hourglass i saw you in time you slipped away,11,M03_S15_12,12.69
+23,117.39,130.49,through the hourglass i saw you in time you slipped away,11,M04_S15_12,13.1
+24,130.87,139.73,when the mirror crashed i called you and turned to hear you say,10,F01_S15_11,8.86
+24,130.69,139.66,when the mirror crashed i called you and turned to hear you say,11,M02_S15_12,8.97
+24,130.64,139.84,when the mirror crashed i called you and turned to hear you say,12,F02_S15_13,9.2
+24,130.66,140.04,when the mirror crashed i called you and turned to hear you say,12,M03_S15_13,9.38
+24,130.49,139.42,when the mirror crashed i called you and turned to hear you say,12,M04_S15_13,8.93
+24,130.99,139.92,when the mirror crashed i called you and turned to hear you say,12,F04_S15_13,8.93
