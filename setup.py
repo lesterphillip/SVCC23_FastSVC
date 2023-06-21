@@ -44,6 +44,7 @@ requirements = {
         "torch_complex",
         "speechbrain",
         "espnet",
+        "pydub",
         #"torchaudio>=1.8.0",
     ],
     "setup": [
