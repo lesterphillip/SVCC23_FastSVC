@@ -1,4 +1,4 @@
-# Singing Voice Conversion Challenge 2023 Starter Kit: FastSVC
+# Singing Voice Conversion Challenge 2023 Starter Kit: FastSVC and B02 System
 
 Official homepage: [http://www.vc-challenge.org/](http://www.vc-challenge.org/)
 
@@ -10,6 +10,7 @@ This repository provides the <strong>UNOFFICIAL</strong> reimplementation of Fas
 
 ---
 ## News
+- **2023/06/26** We are releasing the B02 system reimplementation.
 - **2023/02/17** We are releasing the first version of the repository and some generated samples at [this site](http://www.vc-challenge.org/samples/index.html).
 
 ---
@@ -32,6 +33,10 @@ Specific changes:
 
 ### Reimplementation Samples
 You can see some samples of the original paper's reimplementation [here.](https://drive.google.com/drive/folders/1VDlyQDsvZZ2UujfY3axnUoKeCBM-h-Kx?usp=share_link)
+
+## Description of the FastSVC System
+To help people get started with SVC, we also developed a decomposed version of FastSVC to improve training time.
+Please refer to recipe in `egs/svcc23/baseline02`
 
 ---
 ## Pretrained models and demo for SVCC23 dataset

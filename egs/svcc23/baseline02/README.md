@@ -1,6 +1,6 @@
-# FastSVC with the SVCC23 dataset
+# SVCC23 B02 Reimplementation
 
-This recipe runs a reimplementation of FastSVC using the SVCC23 Dataset.
+This recipe runs a reimplementation of the SVCC23 B02 system.
 
 Before running this, please make sure that you have already setup your environment. You can refer to the README file in the root folder.
 
@@ -20,17 +20,16 @@ cd SVCC23_FastSVC/egs/svcc23/fastsvc1
 
 ### 2. Specify the following parameters for dataset preprocessing.
 
-2a. Replace the file locations in the wav.scp files found in the `data/` directory, and the PPG model file path in `conf/fastsvc.yaml`. There are two configurations based on the sampling rate.
+2a. Create the wav.scp files in the `data/` directory.
 
 We use a kaldi-style data directory. To make things easier, you can just simply replace the `/path/to/dir` with the directory where you placed the dataset and the repository. 
-
-You also need to change the file path of the PPG model (`ppg_model_path`) and configuration file (`ppg_conf_path`) found in the configuration files by also simply replacing the `/path/to/dir`. The PPG model is included in this repository.
 
 ---
 
 2b. Set the F0 search range in `conf/f0.yaml`
 
 You can simply use default values in the F0 search range. However, if you want to make the F0 extraction more precise, you need to change the values in the `f0.yaml` file. You can refer to this [document](https://github.com/k2kobayashi/sprocket/blob/master/docs/vc_example.md#3-modify-f0-search-range) for a guide on how to determine the F0 search range.
+We provide our used calculations in `conf/f0.yaml`
 
 ---
 
@@ -56,9 +55,8 @@ $ python3 utils/split_train_dev.py --source_scp data/svcc23_full/wav.scp --train
 $ . ./path.sh
 # Stage 0: x-vector extraction using SpeechBrain
 # Stage 1: PPG, F0, and loudness feature extraction (PPG extraction uses a GPU by default, but you can switch it off through `device_feat_extract`)
-# Stage 2: F0 mean and variance calculation for inference
-# Stage 3: Compute statistics and normalize features
-$ ./run.sh --stop_stage 3
+# Stage 2: Compute statistics and normalize features
+$ ./run.sh --stop_stage 2
 ```
 
 ### 3. Train the model
@@ -67,7 +65,7 @@ You can simply start training the model just by the following command:
 
 ```sh
 # You can sort your experiments by the --tag option.
-$ ./run.sh --stage 4 --stop_stage 4 --tag fastsvc_experiment1
+$ ./run.sh --stage 3 --stop_stage 3 --tag svccb02_experiment1
 ```
 
 There is also a lot of flexibility in the code, as you can initialize weights from a pretrained model or resume from a checkpoint.
@@ -83,23 +81,16 @@ Next, you can start synthesizing waveforms using the model just by the following
 
 ```sh
 # Make sure that you specify the --tag option to name the experiment directory
-$ ./run.sh --stage 5 --tag fastsvc_experiment1
+$ ./run.sh --stage 4 --tag svccb02_experiment1
 ```
 
 If you are using a pretrained model, you can also specify the checkpoint to load using the `--checkpoint` option
 
 ## Pretrained Models
 
-24kHz / Trained on SVCC23 + VCTK + M4Singer + OpenCPOP + OpenSinger / 600k steps
-- Takes around 4 days to train on a single RTX 3090.
-- [Link](https://drive.google.com/file/d/1Ehn0mWqnC5kg6RmZJktY9lZFOh9Ndczu/view?usp=share_link)
+Acoustic model Taco2 + AR / Trained on SVCC23 + VCTK + opencpop + multisinger + opensinger + m4singer / 50k steps
+- [Link](https://drive.google.com/file/d/15jXHAA0SKF4nqD6kRDYjVXezBnhcJbH-/view?usp=drive_link)
 
+Vocoder model HN-uSFGAN / Trained on SVCC23 + VCTK + opencpop + multisinger + opensinger + m4singer / 600k steps
+- [Link](https://drive.google.com/file/d/1z61kNRHNz9eELi97re1nFNMvY3ym8zH9/view?usp=drive_link)
 
-16kHz / Trained on SVCC23 + VCTK / 600k steps
-- Takes around 2 days to train on a single RTX 3090.
-- [Link](https://drive.google.com/file/d/1DlwtPRSUH6a-ScIpnUqUXZHxXzGQANvD/view?usp=share_link)
-
-
-## Samples
-
-- [Link](lesterphillip.github.io/svcc23samples)

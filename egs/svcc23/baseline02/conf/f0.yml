@@ -46,6 +46,18 @@ p225:
 SF1:
   maxf0: 600
   minf0: 150
+  f0_ceil: 600
+  f0_floor: 140
+  f0_mean: 347.04
+  f0_scale: 78.94
+  lf0_mean: 5.82
+  lf0_scale: 0.24
 SM1:
   maxf0: 500
   minf0: 70
+  f0_ceil: 500
+  f0_floor: 70
+  f0_mean: 229.44
+  f0_scale: 82.61
+  lf0_mean: 5.37
+  lf0_scale: 0.35
