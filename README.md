@@ -34,7 +34,7 @@ Specific changes:
 ### Reimplementation Samples
 You can see some samples of the original paper's reimplementation [here.](https://drive.google.com/drive/folders/1VDlyQDsvZZ2UujfY3axnUoKeCBM-h-Kx?usp=share_link)
 
-## Description of the FastSVC System
+## Description of the SVCC B02 System
 To help people get started with SVC, we also developed a decomposed version of FastSVC to improve training time.
 Please refer to recipe in `egs/svcc23/baseline02`
 
