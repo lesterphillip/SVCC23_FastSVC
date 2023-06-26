@@ -60,12 +60,12 @@ requirements = {
 entry_points = {
     "console_scripts": [
         "harana-extract-speakers=harana.bin.extract_spk_embs:main",
-        "harana-preprocess=harana.bin.preprocess:main",
+        "harana-preprocess=harana.bin.preprocess_fastsvc:main",
         "harana-preprocess-b02=harana.bin.preprocess_b02:main",
-        "harana-compute-statistics=harana.bin.compute_statistics:main",
+        "harana-compute-statistics=harana.bin.compute_statistics_fastsvc:main",
         "harana-compute-statistics-b02=harana.bin.compute_statistics_b02:main",
         "harana-compute-f0stats=harana.bin.compute_f0stats:main",
-        "harana-normalize=harana.bin.normalize:main",
+        "harana-normalize=harana.bin.normalize_fastsvc:main",
         "harana-normalize-b02=harana.bin.normalize_b02:main",
         "harana-train-fastsvc=harana.bin.train_fastsvc:main",
         "harana-train-b02=harana.bin.train_b02:main",
