@@ -1,0 +1,105 @@
+# This is the hyperparameter configuration file for Decomposed FastSVC
+
+###########################################################
+#                FEATURE EXTRACTION SETTING               #
+###########################################################
+sampling_rate: 24000     # Sampling rate.
+fft_size: 2048           # FFT size.
+hop_size: 160            # Hop size for mel-extraction.
+lft_hop_size: 64
+interpolate_lft: False
+win_length: null         # Window length.
+                         # If set to null, it will be the same as fft_size.
+shiftms: 6.7
+mcep_dim: 59
+
+window: "hann"           # Window function.
+num_mels: 80             # Number of mel basis.
+fmin: 80                 # Minimum freq in mel basis calculation.
+fmax: 7600               # Maximum frequency in mel basis calculation.
+global_gain_scale: 1.0   # Will be multiplied to all of waveform.
+
+trim_silence: True      # Whether to trim the start and end of silence.
+trim_threshold_in_db: 35 # Need to tune carefully if the recording is not good.
+trim_frame_size: 2048    # Frame size in trimming.
+trim_hop_size: 512       # Hop size in trimming.
+
+###########################################################
+#              NETWORK ARCHITECTURE SETTING               #
+###########################################################
+generator_type: "Tacotron2Wrapper"
+generator_params:
+    input_dim: 256      # Number of input channels, embedding size from PPG
+    output_dim: 60       # Number of output channels.
+    enc_layers: 1
+    dec_layers: 2
+    multi_speaker: True
+    spk_emb_dim: 512
+    integrate_logf0: True
+    ar_mode: True
+discriminator_type: MultiSubFreqDiscriminator
+discriminator_params:
+    in_channels: 1
+    layers: 4
+    kernel_size: 9
+    channels: 64
+    batch_max_frames: 50
+
+discriminator_train_start_steps: 10000 # Number of steps to start to train discriminator.
+aux_features: "logmel"
+
+###########################################################
+#                  DATA LOADER SETTING                    #
+###########################################################
+batch_size: 16             # Batch size.
+pin_memory: true           # Whether to pin memory in Pytorch DataLoader.
+num_workers: 4             # Number of workers in Pytorch DataLoader.
+remove_short_samples: true # Whether to remove samples the length of which are less than batch_max_steps.
+allow_cache: true          # Whether to allow cache in dataset. If true, it requires cpu memory.
+signal_generator:          # Configuration for the sine excitation signal generator
+    sine_amp: 0.1
+    noise_amp: 0.003
+    sine_f0_type: "f0"
+    signal_types: ["sine", "noise"]
+
+###########################################################
+#             OPTIMIZER & SCHEDULER SETTING               #
+###########################################################
+generator_optimizer_params:
+    lr: 0.0001             # Generator's learning rate.
+    eps: 1.0e-6            # Generator's epsilon.
+    weight_decay: 0.0      # Generator's weight decay coefficient.
+generator_scheduler_params:
+    step_size: 4000      # Generator's scheduler step size.
+    gamma: 0.5             # Generator's scheduler gamma.
+                           # At each step size, lr will be multiplied by this parameter.
+                           
+generator_grad_norm: 1    # Generator's gradient norm.
+discriminator_optimizer_params:
+    lr: 0.0002            # Discriminator's learning rate.
+    eps: 1.0e-6            # Discriminator's epsilon.
+    weight_decay: 0.0      # Discriminator's weight decay coefficient.
+discriminator_scheduler_params:
+    step_size: 100000      # Discriminator's scheduler step size.
+    gamma: 0.5             # Discriminator's scheduler gamma.
+                           # At each step size, lr will be multiplied by this parameter.
+discriminator_grad_norm: 10 # Discriminator's gradient norm.
+
+
+grad_norm: 1    # Generator's gradient norm.
+lambda_l1: 1.0
+lambda_adv: 2.5
+
+###########################################################
+#                    INTERVAL SETTING                     #
+###########################################################
+train_max_steps: 50000                 # Number of training steps.
+save_interval_steps: 5000               # Interval steps to save checkpoint.
+eval_interval_steps: 1000               # Interval steps to evaluate the network.
+log_interval_steps: 1000                 # Interval steps to record the training log.
+
+###########################################################
+#                     OTHER SETTING                       #
+###########################################################
+num_save_intermediate_results: 6  # Number of results to be saved as intermediate results.
+convert_to_speakers: ["IDM1", "IDF1", "CDM1", "CDF1"] # Target speakers to convert to during inference

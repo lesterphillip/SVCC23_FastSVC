@@ -30,6 +30,7 @@ egs/*/*/data*
 egs/*/*/dump*
 egs/*/*/exp*
 egs/*/*/pretrained_models
+egs/*/*/downloads
 
 # tools related
 tools/venv/

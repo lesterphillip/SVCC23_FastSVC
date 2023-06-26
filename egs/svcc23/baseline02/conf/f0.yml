@@ -1,0 +1,51 @@
+IDF1:
+  maxf0: 500
+  minf0: 100
+  f0_ceil: 650
+  f0_floor: 125
+  f0_mean: 324.49
+  f0_scale: 95.97
+  lf0_mean: 5.74
+  lf0_scale: 0.3
+IDM1:
+  maxf0: 500
+  minf0: 90
+  f0_ceil: 500
+  f0_floor: 80
+  f0_mean: 206.82
+  f0_scale: 62.03
+  lf0_mean: 5.29
+  lf0_scale: 0.29
+CDF1:
+  maxf0: 380
+  minf0: 100
+  f0_ceil: 400
+  f0_floor: 100
+  f0_mean: 195.53
+  f0_scale: 31.85
+  lf0_mean: 5.26
+  lf0_scale: 0.16
+CDM1:
+  maxf0: 240
+  minf0: 50
+  f0_ceil: 225
+  f0_floor: 80
+  f0_mean: 122.42
+  f0_scale: 16.24
+  lf0_mean: 4.8
+  lf0_scale: 0.13
+p225:
+  maxf0: 340
+  minf0: 70
+  f0_ceil: 225
+  f0_floor: 80
+  f0_mean: 122.42
+  f0_scale: 16.24
+  lf0_mean: 4.8
+  lf0_scale: 0.13
+SF1:
+  maxf0: 600
+  minf0: 150
+SM1:
+  maxf0: 500
+  minf0: 70

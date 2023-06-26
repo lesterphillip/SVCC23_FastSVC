@@ -1,19 +1,21 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2023 Lester Violeta (Nagoya University)
+# Copyright 2022 Lester Violeta (Nagoya University)
 #  MIT License (https://opensource.org/licenses/MIT)
 
 """Upsampling module.
 
 References:
-    - https://github.com/r9y9/wavenet_vocoder
-    - https://github.com/kan-bayashi/ParallelWaveGAN
-    - https://github.com/chomeyama/HN-UnifiedSourceFilterGAN
+  - https://github.com/r9y9/wavenet_vocoder
+  - https://github.com/kan-bayashi/ParallelWaveGAN
+  - https://github.com/chomeyama/HN-UnifiedSourceFilterGAN
+
 """
 
 import numpy as np
 import torch
 import torch.nn.functional as F
+from harana.layers.residual_block import Conv1d
 
 
 class Stretch2d(torch.nn.Module):
@@ -50,7 +52,6 @@ class Stretch2d(torch.nn.Module):
 
 class Squeeze2d(torch.nn.Module):
     """Downsample a signal using interpolation."""
-
     def __init__(self, scale, mode="nearest"):
         """Initialize Squeeze2d module.
         Args:
@@ -59,7 +60,7 @@ class Squeeze2d(torch.nn.Module):
         super(Squeeze2d, self).__init__()
         self.scale = scale
         self.mode = mode
-
+    
     def forward(self, x):
         """Calculate forward propagation.
         Args:
@@ -68,18 +69,9 @@ class Squeeze2d(torch.nn.Module):
             Tensor: Interpolated tensor (B, C, T / scale)
         """
         size = int(x.size()[-1] / self.scale)
-        return F.interpolate(x, size=size, mode=self.mode)
-
-
-class Conv1d1x1(torch.nn.Conv1d):
-    """1x1 Conv1d with customized initialization."""
-
-    def __init__(self, in_channels, out_channels, bias=True):
-        """Initialize 1x1 Conv1d module."""
-        super(Conv1d1x1, self).__init__(
-            in_channels, out_channels, kernel_size=1, padding=0, dilation=1, bias=bias
+        return F.interpolate(
+            x, size=size, mode=self.mode
         )
-
 
 class Conv1d1x3(torch.nn.Conv1d):
     """1x3 Conv1d with customized initialization."""
@@ -87,14 +79,8 @@ class Conv1d1x3(torch.nn.Conv1d):
     def __init__(self, in_channels, out_channels, padding, dilation, bias=True):
         """Initialize 3x1 Conv1d module."""
         super(Conv1d1x3, self).__init__(
-            in_channels,
-            out_channels,
-            kernel_size=3,
-            padding=padding,
-            dilation=dilation,
-            bias=bias,
+            in_channels, out_channels, kernel_size=3, padding=padding, dilation=dilation, bias=bias
         )
-
 
 class Conv2d(torch.nn.Conv2d):
     """Conv2d module with customized initialization."""
@@ -116,12 +102,7 @@ class Conv2d1x3(torch.nn.Conv2d):
     def __init__(self, in_channels, out_channels, padding, dilation, bias=True):
         """Initialize 3x1 Conv1d module."""
         super(Conv2d1x3, self).__init__(
-            in_channels,
-            out_channels,
-            kernel_size=(1, 3),
-            padding=padding,
-            dilation=dilation,
-            bias=bias,
+            in_channels, out_channels, kernel_size=(1,3), padding=padding, dilation=dilation, bias=bias
         )
 
 
@@ -195,11 +176,67 @@ class UpsampleNetwork(torch.nn.Module):
         return c.squeeze(1)  # (B, C, T')
 
 
-class Conv2d1x1(Conv2d):
-    """1x1 Conv2d with customized initialization."""
+class ConvInUpsampleNetwork(torch.nn.Module):
+    """Convolution + upsampling network module."""
 
-    def __init__(self, in_channels, out_channels, bias=True):
-        """Initialize 1x1 Conv2d module."""
-        super(Conv2d1x1, self).__init__(
-            in_channels, out_channels, kernel_size=1, padding=0, dilation=1, bias=bias
+    def __init__(
+        self,
+        upsample_scales,
+        nonlinear_activation=None,
+        nonlinear_activation_params={},
+        interpolate_mode="nearest",
+        freq_axis_kernel_size=1,
+        aux_channels=80,
+        aux_context_window=0,
+        use_causal_conv=False,
+    ):
+        """Initialize convolution + upsampling network module.
+
+        Args:
+            upsample_scales (list): List of upsampling scales.
+            nonlinear_activation (str): Activation function name.
+            nonlinear_activation_params (dict): Arguments for specified activation function.
+            mode (str): Interpolation mode.
+            freq_axis_kernel_size (int): Kernel size in the direction of frequency axis.
+            aux_channels (int): Number of channels of pre-convolutional layer.
+            aux_context_window (int): Context window size of the pre-convolutional layer.
+            use_causal_conv (bool): Whether to use causal structure.
+
+        """
+        super(ConvInUpsampleNetwork, self).__init__()
+        self.aux_context_window = aux_context_window
+        self.use_causal_conv = use_causal_conv and aux_context_window > 0
+        # To capture wide-context information in conditional features
+        kernel_size = (
+            aux_context_window + 1 if use_causal_conv else 2 * aux_context_window + 1
         )
+        # NOTE(kan-bayashi): Here do not use padding because the input is already padded
+        self.conv_in = Conv1d(
+            aux_channels, aux_channels, kernel_size=kernel_size, bias=False
+        )
+        self.upsample = UpsampleNetwork(
+            upsample_scales=upsample_scales,
+            nonlinear_activation=nonlinear_activation,
+            nonlinear_activation_params=nonlinear_activation_params,
+            interpolate_mode=interpolate_mode,
+            freq_axis_kernel_size=freq_axis_kernel_size,
+            use_causal_conv=use_causal_conv,
+        )
+
+    def forward(self, c):
+        """Calculate forward propagation.
+
+        Args:
+            c : Input tensor (B, C, T').
+
+        Returns:
+            Tensor: Upsampled tensor (B, C, T),
+                where T = (T' - aux_context_window * 2) * prod(upsample_scales).
+
+        Note:
+            The length of inputs considers the context window size.
+
+        """
+        c_ = self.conv_in(c)
+        c = c_[:, :, : -self.aux_context_window] if self.use_causal_conv else c_
+        return self.upsample(c)

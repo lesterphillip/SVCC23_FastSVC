@@ -123,6 +123,7 @@ def main():
         # extract speaker embedding and save to dictionary
         audio = np.array(audio, dtype=np.float)
         spk_emb = spk_emb_extractor.encode_batch(torch.from_numpy(audio))
+        logging.info(spk_emb.shape)
         if spk_dict.get(spk_id) is None:
             spk_dict[spk_id] = []
         spk_dict[spk_id].append(spk_emb.cpu().squeeze(0).numpy().tolist())
