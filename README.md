@@ -23,7 +23,7 @@ This repository provides the <strong>UNOFFICIAL</strong> reimplementation of Fas
 This system uses phonetic posteriorgrams (PPGs) extracted by a pretrained ASR model, loudness, pitch, and speaker embeddings (x-vectors). The PPGs are upsampled by a scaling factor, and are fused with the downsampled loudness and pitch features after being processed by a FiLM block. The speaker embeddings are added to the fused PPG, loudness, and pitch afterwards.
 </p>
 
-Please note that there are some differences between this system and the official paper. The original FastSVC system was made for 16kHz generation, but we made changes to accommodate 24kHz generation.
+Please note that there are some differences between this system and the official paper. The original FastSVC system was made for 16kHz generation.
 
 Specific changes:
 1. Instead of using three different pitch extractors, we only used the Harvest from the PyWorld toolkit as the pitch extractor.
@@ -32,7 +32,8 @@ Specific changes:
 4. The PPG extractor we [used](https://github.com/liusongxiang/ppg-vc/tree/main/conformer_ppg_model) has a hop size of 160, so the upsampling scales are changed to [5, 4, 4, 2].
 
 ### Reimplementation Samples
-You can see some samples of the original paper's reimplementation [here.](https://drive.google.com/drive/folders/1VDlyQDsvZZ2UujfY3axnUoKeCBM-h-Kx?usp=share_link)
+You can see some samples of the original FastSVC paper's reimplementation [here.](https://drive.google.com/drive/folders/1VDlyQDsvZZ2UujfY3axnUoKeCBM-h-Kx?usp=share_link)
+Help is needed to improve this.
 
 ## Description of the SVCC B02 System
 To help people get started with SVC, we also developed a decomposed version of FastSVC to improve training time.

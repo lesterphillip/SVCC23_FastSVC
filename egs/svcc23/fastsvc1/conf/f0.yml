@@ -1,12 +1,476 @@
-IDF:
-  maxf0: 1000
-  minf0: 100
-IDM:
-  maxf0: 1000
-  minf0: 100
-CDF:
-  maxf0: 340
+p225:
+  minf0: 130
+  maxf0: 260
+  pow_th: -20
+p226:
+  minf0: 80
+  maxf0: 180
+  pow_th: -20
+p227:
+  minf0: 80
+  maxf0: 190
+  pow_th: -20
+p228:
+  minf0: 120
+  maxf0: 300
+  pow_th: -20
+p229:
+  minf0: 140
+  maxf0: 230
+  pow_th: -20
+p230:
+  minf0: 140
+  maxf0: 260
+  pow_th: -20
+p231:
+  minf0: 110
+  maxf0: 280
+  pow_th: -20
+p232:
   minf0: 70
-CDM:
-  maxf0: 340
+  maxf0: 180
+  pow_th: -20
+p233:
+  minf0: 150
+  maxf0: 290
+  pow_th: -20
+p234:
+  minf0: 130
+  maxf0: 270
+  pow_th: -20
+p236:
+  minf0: 170
+  maxf0: 330
+  pow_th: -20
+p237:
+  minf0: 60
+  maxf0: 120
+  pow_th: -20
+p238:
+  minf0: 140
+  maxf0: 320
+  pow_th: -20
+p239:
+  minf0: 140
+  maxf0: 270
+  pow_th: -20
+p240:
+  minf0: 150
+  maxf0: 330
+  pow_th: -20
+p241:
+  minf0: 85
+  maxf0: 170
+  pow_th: -20
+p243:
+  minf0: 80
+  maxf0: 180
+  pow_th: -20
+p244:
+  minf0: 150
+  maxf0: 320
+  pow_th: -20
+p245:
   minf0: 70
+  maxf0: 130
+  pow_th: -20
+p246:
+  minf0: 70
+  maxf0: 140
+  pow_th: -20
+p247:
+  minf0: 90
+  maxf0: 200
+  pow_th: -20
+p248:
+  minf0: 130
+  maxf0: 390
+  pow_th: -20
+p249:
+  minf0: 130
+  maxf0: 240
+  pow_th: -20
+p250:
+  minf0: 110
+  maxf0: 380
+  pow_th: -20
+p251:
+  minf0: 80
+  maxf0: 170
+  pow_th: -20
+p252:
+  minf0: 80
+  maxf0: 160
+  pow_th: -20
+p253:
+  minf0: 160
+  maxf0: 310
+  pow_th: -20
+p254:
+  minf0: 55
+  maxf0: 120
+  pow_th: -20
+p255:
+  minf0: 95
+  maxf0: 210
+  pow_th: -20
+p256:
+  minf0: 60
+  maxf0: 130
+  pow_th: -20
+p257:
+  minf0: 150
+  maxf0: 300
+  pow_th: -20
+p258:
+  minf0: 90
+  maxf0: 170
+  pow_th: -20
+p259:
+  minf0: 80
+  maxf0: 200
+  pow_th: -20
+p260:
+  minf0: 70
+  maxf0: 170
+  pow_th: -20
+p261:
+  minf0: 140
+  maxf0: 360
+  pow_th: -20
+p262:
+  minf0: 120
+  maxf0: 250
+  pow_th: -20
+p263:
+  minf0: 70
+  maxf0: 160
+  pow_th: -20
+p264:
+  minf0: 150
+  maxf0: 250
+  pow_th: -20
+p265:
+  minf0: 130
+  maxf0: 290
+  pow_th: -20
+p266:
+  minf0: 100
+  maxf0: 300
+  pow_th: -20
+p267:
+  minf0: 130
+  maxf0: 270
+  pow_th: -20
+p268:
+  minf0: 130
+  maxf0: 300
+  pow_th: -20
+p269:
+  minf0: 150
+  maxf0: 260
+  pow_th: -20
+p270:
+  minf0: 75
+  maxf0: 150
+  pow_th: -20
+p271:
+  minf0: 90
+  maxf0: 160
+  pow_th: -20
+p272:
+  minf0: 80
+  maxf0: 180
+  pow_th: -20
+p273:
+  minf0: 100
+  maxf0: 220
+  pow_th: -20
+p274:
+  minf0: 75
+  maxf0: 150
+  pow_th: -20
+p275:
+  minf0: 80
+  maxf0: 160
+  pow_th: -20
+p276:
+  minf0: 170
+  maxf0: 340
+  pow_th: -20
+p277:
+  minf0: 160
+  maxf0: 260
+  pow_th: -20
+p278:
+  minf0: 80
+  maxf0: 170
+  pow_th: -20
+p279:
+  minf0: 80
+  maxf0: 200
+  pow_th: -20
+p280:
+  minf0: 140
+  maxf0: 280
+  pow_th: -20
+p281:
+  minf0: 70
+  maxf0: 140
+  pow_th: -20
+p282:
+  minf0: 150
+  maxf0: 250
+  pow_th: -20
+p283:
+  minf0: 160
+  maxf0: 280
+  pow_th: -20
+p284:
+  minf0: 60
+  maxf0: 170
+  pow_th: -20
+p285:
+  minf0: 80
+  maxf0: 180
+  pow_th: -20
+p286:
+  minf0: 90
+  maxf0: 210
+  pow_th: -20
+p287:
+  minf0: 65
+  maxf0: 140
+  pow_th: -20
+p288:
+  minf0: 130
+  maxf0: 300
+  pow_th: -20
+p292:
+  minf0: 70
+  maxf0: 170
+  pow_th: -20
+p293:
+  minf0: 130
+  maxf0: 260
+  pow_th: -20
+p294:
+  minf0: 120
+  maxf0: 260
+  pow_th: -20
+p295:
+  minf0: 140
+  maxf0: 260
+  pow_th: -20
+p297:
+  minf0: 120
+  maxf0: 300
+  pow_th: -20
+p298:
+  minf0: 80
+  maxf0: 190
+  pow_th: -20
+p299:
+  minf0: 110
+  maxf0: 270
+  pow_th: -20
+p300:
+  minf0: 130
+  maxf0: 270
+  pow_th: -20
+p301:
+  minf0: 120
+  maxf0: 250
+  pow_th: -20
+p302:
+  minf0: 90
+  maxf0: 180
+  pow_th: -20
+p303:
+  minf0: 160
+  maxf0: 300
+  pow_th: -20
+p304:
+  minf0: 65
+  maxf0: 160
+  pow_th: -20
+p305:
+  minf0: 160
+  maxf0: 330
+  pow_th: -20
+p306:
+  minf0: 130
+  maxf0: 260
+  pow_th: -20
+p307:
+  minf0: 160
+  maxf0: 400
+  pow_th: -20
+p308:
+  minf0: 140
+  maxf0: 280
+  pow_th: -20
+p310:
+  minf0: 170
+  maxf0: 350
+  pow_th: -20
+p311:
+  minf0: 75
+  maxf0: 160
+  pow_th: -20
+p312:
+  minf0: 130
+  maxf0: 280
+  pow_th: -20
+p313:
+  minf0: 120
+  maxf0: 260
+  pow_th: -20
+p314:
+  minf0: 120
+  maxf0: 270
+  pow_th: -20
+p315:
+  minf0: 90
+  maxf0: 190
+  pow_th: -20
+p316:
+  minf0: 65
+  maxf0: 140
+  pow_th: -20
+p317:
+  minf0: 175
+  maxf0: 360
+  pow_th: -20
+p318:
+  minf0: 110
+  maxf0: 290
+  pow_th: -20
+p323:
+  minf0: 130
+  maxf0: 390
+  pow_th: -20
+p326:
+  minf0: 50
+  maxf0: 110
+  pow_th: -20
+p329:
+  minf0: 150
+  maxf0: 280
+  pow_th: -20
+p330:
+  minf0: 140
+  maxf0: 270
+  pow_th: -20
+p333:
+  minf0: 120
+  maxf0: 270
+  pow_th: -20
+p334:
+  minf0: 65
+  maxf0: 140
+  pow_th: -20
+p335:
+  minf0: 130
+  maxf0: 310
+  pow_th: -20
+p336:
+  minf0: 130
+  maxf0: 310
+  pow_th: -20
+p339:
+  minf0: 120
+  maxf0: 310
+  pow_th: -20
+p340:
+  minf0: 170
+  maxf0: 270
+  pow_th: -20
+p341:
+  minf0: 130
+  maxf0: 280
+  pow_th: -20
+p343:
+  minf0: 110
+  maxf0: 240
+  pow_th: -20
+p345:
+  minf0: 70
+  maxf0: 140
+  pow_th: -20
+p347:
+  minf0: 60
+  maxf0: 130
+  pow_th: -20
+p351:
+  minf0: 170
+  maxf0: 280
+  pow_th: -20
+p360:
+  minf0: 70
+  maxf0: 160
+  pow_th: -20
+p361:
+  minf0: 120
+  maxf0: 290
+  pow_th: -20
+p362:
+  minf0: 130
+  maxf0: 300
+  pow_th: -20
+p363:
+  minf0: 70
+  maxf0: 180
+  pow_th: -20
+p364:
+  minf0: 65
+  maxf0: 145
+  pow_th: -20
+p374:
+  minf0: 70
+  maxf0: 190
+  pow_th: -20
+p376:
+  minf0: 70
+  maxf0: 170
+  pow_th: -20
+s5:
+  minf0: 140
+  maxf0: 340
+  pow_th: -20
+ADIZ:
+  maxf0: 490
+  minf0: 150
+JLEE:
+  maxf0: 340
+  minf0: 90
+JTAN:
+  maxf0: 300
+  minf0: 50
+KENN:
+  maxf0: 340
+  minf0: 90
+MCUR:
+  maxf0: 500
+  minf0: 140
+MPOL:
+  maxf0: 510
+  minf0: 140
+MPUR:
+  maxf0: 510
+  minf0: 140
+NJAT:
+  maxf0: 510
+  minf0: 140
+PMAR:
+  maxf0: 510
+  minf0: 140
+SAMF:
+  maxf0: 290
+  minf0: 90
+VKOW:
+  maxf0: 340
+  minf0: 50
+ZHIY:
+  maxf0: 340
+  minf0: 90

@@ -11,7 +11,7 @@ stop_stage=100 # stage to stop
 n_gpus=1       # number of gpus in training
 n_jobs=4       # number of parallel jobs in feature extraction
 
-conf=conf/fastsvc24kHz.yaml
+conf=conf/fastsvc.yaml
 f0_path=conf/f0.yml
 device_feat_extract="cuda"
 
@@ -31,9 +31,9 @@ checkpoint="" # checkpoint path to be used for decoding
 # shellcheck disable=SC1091
 . utils/parse_options.sh || exit 1;
 
-train_set="train_full" # name of training data directory
-dev_set="dev_full"           # name of development data direcotry
-eval_set="evaluation_samples"     # name of evaluation data direcotry
+train_set="train" # name of training data directory
+dev_set="dev"           # name of development data direcotry
+eval_set="eval"     # name of evaluation data direcotry
 
 set -euo pipefail
 

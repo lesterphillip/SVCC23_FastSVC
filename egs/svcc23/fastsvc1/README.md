@@ -30,7 +30,7 @@ You also need to change the file path of the PPG model (`ppg_model_path`) and co
 
 2b. Set the F0 search range in `conf/f0.yaml`
 
-You can simply use default values in the F0 search range. However, if you want to make the F0 extraction more precise, you need to change the values in the `f0.yaml` file. You can refer to this [document](https://github.com/k2kobayashi/sprocket/blob/master/docs/vc_example.md#3-modify-f0-search-range) for a guide on how to determine the F0 search range.
+The VCTK and NUS-48E values are added in the directory. If you want to add your own dataset, you need to make the F0 extraction more precise, and add the values in the `f0.yaml` file. You can refer to this [document](https://github.com/k2kobayashi/sprocket/blob/master/docs/vc_example.md#3-modify-f0-search-range) for a guide on how to determine the F0 search range.
 
 ---
 
@@ -90,11 +90,6 @@ If you are using a pretrained model, you can also specify the checkpoint to load
 
 ## Pretrained Models
 
-24kHz / Trained on SVCC23 + VCTK + M4Singer + OpenCPOP + OpenSinger / 600k steps
-- Takes around 4 days to train on a single RTX 3090.
-- [Link](https://drive.google.com/file/d/1Ehn0mWqnC5kg6RmZJktY9lZFOh9Ndczu/view?usp=share_link)
-
-
 16kHz / Trained on SVCC23 + VCTK / 600k steps
 - Takes around 2 days to train on a single RTX 3090.
 - [Link](https://drive.google.com/file/d/1DlwtPRSUH6a-ScIpnUqUXZHxXzGQANvD/view?usp=share_link)
@@ -102,4 +97,4 @@ If you are using a pretrained model, you can also specify the checkpoint to load
 
 ## Samples
 
-- [Link](lesterphillip.github.io/svcc23samples)
+- [Link](https://drive.google.com/drive/folders/1VDlyQDsvZZ2UujfY3axnUoKeCBM-h-Kx?usp=share_link)

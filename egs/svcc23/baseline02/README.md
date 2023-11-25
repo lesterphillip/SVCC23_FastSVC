@@ -22,7 +22,7 @@ cd SVCC23_FastSVC/egs/svcc23/fastsvc1
 
 2a. Create the wav.scp files in the `data/` directory.
 
-We use a kaldi-style data directory. To make things easier, you can just simply replace the `/path/to/dir` with the directory where you placed the dataset and the repository. 
+Replace the SVCC23 dataset location in `local/data.py`, and then run via `python local/data.py`
 
 ---
 
